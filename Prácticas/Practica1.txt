@@ -1,0 +1,347 @@
+Ejercicio 1.1
+
+
+// Creación de directorios
+
+javierb@ei140058:~/Escritorio$ cd
+javierb@ei140058:~$ mkdir ejercicio1
+javierb@ei140058:~$ cd ejercicio1
+javierb@ei140058:~/ejercicio1$ mkdir Ejer{1,2,3}
+javierb@ei140058:~/ejercicio1$ ls
+Ejer1  Ejer2  Ejer3
+javierb@ei140058:~/ejercicio1$ cd Ejer1
+javierb@ei140058:~/ejercicio1/Ejer1$ mkdir Ejer21
+
+Con solo una orden:
+
+javierb@ei140058:~$ mkdir ejercicio1 ejercicio1/Ejer{1,2,3} ejercicio1/Ejer1/Ejer21
+
+// Creación de archivos
+javierb@ei140058:~/ejercicio1/Ejer1$ cd ..
+javierb@ei140058:~/ejercicio1$ cd Ejer1
+javierb@ei140058:~/ejercicio1/Ejer1$ touch arch100.txt filetags.txt practFS.ext robet201.me
+javierb@ei140058:~/ejercicio1/Ejer1$ ls
+arch100.txt  Ejer21  filetags.txt  practFS.ext	robet201.me
+javierb@ei140058:~/ejercicio1/Ejer1$ cd Ejer21
+javierb@ei140058:~/ejercicio1/Ejer1/Ejer21$ touch robet202.me ejer11sol.txt blue.me
+javierb@ei140058:~/ejercicio1/Ejer1/Ejer21$ ls
+blue.me  ejer11sol.txt	robet202.me
+javierb@ei140058:~/ejercicio1/Ejer1/Ejer21$ cd ..
+javierb@ei140058:~/ejercicio1/Ejer1$ cd ..
+javierb@ei140058:~/ejercicio1$ cd Ejer 2
+bash: cd: Ejer: No existe el archivo o el directorio
+javierb@ei140058:~/ejercicio1$ cd Ejer2
+javierb@ei140058:~/ejercicio1/Ejer2$ touch ejer2arch.txt ejer2filetags.txt readme2.pdf
+javierb@ei140058:~/ejercicio1/Ejer2$ ls
+ejer2arch.txt  ejer2filetags.txt  readme2.pdf
+javierb@ei140058:~/ejercicio1/Ejer2$ cd ..
+javierb@ei140058:~/ejercicio1$ cd Ejer3
+javierb@ei140058:~/ejercicio1/Ejer3$ touch ejer3arch.txt ejer3filetags.txt readme3.pdf
+
+Con solo una orden:
+
+javierb@ei140058:~/ejercicio2$ touch Ejer1/{arch100,filetags}.txt Ejer1/practFS.ext Ejer1/robet201.me 
+
+Ejer1/Ejer21/{ejer2arch.txt,ejer2filetags}.txt Ejer1/Ejer21readme2.pdf 
+
+Ejer3/{ejer3arch,ejer3filetags}.txt Ejer3/readme3.pd
+
+
+Ejercicio 1.2
+
+javierb@ei140058:~$ cd ejercicio1
+javierb@ei140058:~/ejercicio1$ cd Ejer1
+javierb@ei140058:~/ejercicio1/Ejer1$ mv Ejer21 ../Ejer2
+javierb@ei140058:~/ejercicio1/Ejer1$ cd ..
+javierb@ei140058:~/ejercicio1$ cd Ejer2
+javierb@ei140058:~/ejercicio1/Ejer2$ ls
+Ejer21	ejer2arch.txt  ejer2filetags.txt  readme2.pdf
+javierb@ei140058:~/ejercicio1/Ejer2$ cd ..
+javierb@ei140058:~/ejercicio1$ cd Ejer1
+javierb@ei140058:~/ejercicio1/Ejer1$ cp *.*x* ../Ejer3
+javierb@ei140058:~/ejercicio1/Ejer1$ cd ../Ejer2
+javierb@ei140058:~/ejercicio1/Ejer2$ ls -la ../Ejer3/*arch*
+-rw-r--r-- 1 javierb alumno 0 sep 26 12:43 ../Ejer3/arch100.txt
+-rw-r--r-- 1 javierb alumno 0 sep 26 12:35 ../Ejer3/ejer3arch.txt
+javierb@ei140058:~/ejercicio1/Ejer2$ 
+
+
+Ejercicio 1.3
+
+javierb@ei140058:~$ cd ejercicio1/Ejer2
+javierb@ei140058:~/ejercicio1/Ejer2$ ls ..
+Ejer1  Ejer2  Ejer3
+
+Ejercicio 2.4
+
+javierb@ei140058:~$ ls -l
+total 20
+drwxr-xr-x 5 javierb alumno 2048 sep 26 12:32 ejercicio1
+javierb@ei140058:~$ touch ejercicio1
+javierb@ei140058:~$ ls -l
+total 20
+drwxr-xr-x 5 javierb alumno 2048 sep 26 13:09 ejercicio1
+
+
+Ejercicio 2.5
+
+javierb@ei140058:~$ pwd
+/home/javierb
+javierb@ei140058:~$ mkdir FP FS AL CL FP/practica1
+javierb@ei140058:~$ cp /etc/hosts ./FP/practica1
+javierb@ei140058:~$ cp /etc/passwd ./FP/practica1
+javierb@ei140058:~$ cat FP/practica1/hosts
+127.0.0.1	localhost
+127.0.1.1	ei140058
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.18.140.10 bacus0.ugr.es bacus0
+172.18.140.11 venus0.ugr.es venus0
+172.18.140.12 lepus0.ugr.es lepus0
+172.18.140.13 cetus0.ugr.es cetus0
+172.18.140.14 fenix0.ugr.es fenix0
+172.18.140.15 sepus0.ugr.es sepus0
+172.18.140.16 pirus0.ugr.es pirus0
+172.18.142.10 backup-etsiit2.ugr.es backup-etsiit2
+172.18.142.11 venus2.ugr.es venus2
+172.18.142.12 lepus2.ugr.es lepus2
+172.18.142.13 cetus2.ugr.es cetus2
+172.18.142.14 fenix2.ugr.es fenix2
+172.18.142.15 sepus2.ugr.es sepus2
+172.18.142.16 pirus2.ugr.es pirus2
+# Maquinas de los departamentos y necesarias para examen
+150.214.190.179 lsi.ugr.es lsi
+150.214.191.180 decsai.ugr.es decsai
+150.214.204.16 prado.ugr.es prado
+150.214.204.15 idp.ugr.es idp
+javierb@ei140058:~$ cat FP/practica1/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+lightdm:x:108:114:Light Display Manager:/var/lib/lightdm:/bin/false
+whoopsie:x:109:116::/nonexistent:/bin/false
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+colord:x:113:123:colord colour management daemon,,,:/var/lib/colord:/bin/false
+speech-dispatcher:x:114:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
+hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+operador:x:1000:1000:operador,,,:/home/operador:/bin/bash
+statd:x:121:65534::/var/lib/nfs:/bin/false
+sshd:x:122:65534::/var/run/sshd:/usr/sbin/nologin
+javierb:x:3487:1500:FRANCISCO JAVIER BOLIVAR EXPOSITO:/home/javierb:/bin/bash
+
+Ejercicio 1.6
+
+javierb@ei140058:~$ mkdir Sesion.{1,2,3,4,10,27} Prueba.1 Sintaxis.2
+javierb@ei140058:~$ rmdir Sesion.4
+javierb@ei140058:~$ ls Sesion.*
+Sesion.1:
+
+Sesion.10:
+
+Sesion.2:
+
+Sesion.27:
+
+Sesion.3:
+javierb@ei140058:~$ ls Sesion.?
+Sesion.1:
+
+Sesion.2:
+
+Sesion.3:
+javierb@ei140058:~$ ls *.1
+Prueba.1:
+
+Sesion.1:
+javierb@ei140058:~$ ls *.1 *.2
+Prueba.1:
+
+Sesion.1:
+
+Sesion.2:
+
+Sintaxis.2:
+javierb@ei140058:~$ ls *si*
+Música:
+
+Sesion.1:
+
+Sesion.10:
+
+Sesion.2:
+
+Sesion.27:
+
+Sesion.3:
+javierb@ei140058:~$ ls *si* *si*.2
+Música:
+
+Sesion.1:
+
+Sesion.10:
+
+Sesion.2:
+
+Sesion.2:
+
+Sesion.27:
+
+Sesion.3:
+javierb@ei140058:~$ 
+
+
+Ejercicio 1.7
+
+dipzza@dipzza-Aspire-E5-573:/bin$ ls ????
+bash  cpio  date  grep  kill  less  nano  ping  sync  vdir  zcmp
+chvt  dash  echo  gzip  kmod  more  open  stty  true  zcat  znew
+dipzza@dipzza-Aspire-E5-573:/bin$ ls d* f*
+dash  df     dnsdomainname  false      findmnt
+date  dir    domainname     fgconsole  fuser
+dd    dmesg  dumpkeys       fgrep      fusermount
+dipzza@dipzza-Aspire-E5-573:/bin$ ls sa* se* ad*
+ls: no se puede acceder a 'sa*': No existe el archivo o el directorio
+ls: no se puede acceder a 'ad*': No existe el archivo o el directorio
+sed  setfacl  setfont  setupcon
+dipzza@dipzza-Aspire-E5-573:/bin$ ls t*r
+tar
+
+
+Ejercicio 1.8
+
+dipzza@dipzza-Aspire-E5-573:~$ ls tem*.{gz,zip}
+ls: no se puede acceder a 'tem*.gz': No existe el archivo o el directorio
+ls: no se puede acceder a 'tem*.zip': No existe el archivo o el directorio
+dipzza@dipzza-Aspire-E5-573:~$ ls /home/dipzza tem*.{gz,zip}
+ls: no se puede acceder a 'tem*.gz': No existe el archivo o el directorio
+ls: no se puede acceder a 'tem*.zip': No existe el archivo o el directorio
+/home/dipzza:
+bin        Documentos  Imágenes  Plantillas  Vídeos
+Descargas  Escritorio  Música    Público
+dipzza@dipzza-Aspire-E5-573:~$ 
+
+Si pones la ruta entera te lista todos los archivos.
+
+Ejercicio 1.9
+
+dipzza@dipzza-Aspire-E5-573:~/Escritorio$ head -10 texto
+Parad los relojes y desconectad el teléfono,
+dadle un hueso jugoso al perro para que no ladre,
+haced callar a los pianos, tocad tambores con sordina,
+sacad el ataúd y llamad a las plañideras.
+
+Que los aviones den vueltas en señal de luto
+y escriban en el cielo el mensaje “Él ha muerto”,
+ponedles crespones en el cuello a las palomas callejeras,
+que los agentes de tráfico lleven guantes negros de
+algodón.
+dipzza@dipzza-Aspire-E5-573:~/Escritorio$ tail -5 texto
+
+Ya no hacen falta estrellas: quitadlas todas,
+guardad la luna y desmontad el sol,
+tirad el mar por el desagüe y podad los bosques,
+porque ahora ya nada puede tener utilidad.
+
+Ejercicio 1.10
+
+dipzza@dipzza-Aspire-E5-573:~/Escritorio$ sort -R texto.txt
+
+porque ahora ya nada puede tener utilidad.
+y escriban en el cielo el mensaje “Él ha muerto”,
+que los agentes de tráfico lleven guantes negros de
+mi semana de trabajo y mi descanso dominical,
+guardad la luna y desmontad el sol,
+dadle un hueso jugoso al perro para que no ladre,
+Pensé que el amor era eterno; estaba equivocado.
+ponedles crespones en el cuello a las palomas callejeras,
+algodón.
+Que los aviones den vueltas en señal de luto
+haced callar a los pianos, tocad tambores con sordina,
+Él era mi norte y mi sur, mi este y mi oeste,
+Ya no hacen falta estrellas: quitadlas todas,
+Parad los relojes y desconectad el teléfono,
+tirad el mar por el desagüe y podad los bosques,
+mi día y mi noche, mi charla y mi música.
+sacad el ataúd y llamad a las plañideras.
+
+dipzza@dipzza-Aspire-E5-573:~/Escritorio$ sort -M texto.txt
+
+algodón.
+dadle un hueso jugoso al perro para que no ladre,
+Él era mi norte y mi sur, mi este y mi oeste,
+guardad la luna y desmontad el sol,
+haced callar a los pianos, tocad tambores con sordina,
+mi día y mi noche, mi charla y mi música.
+mi semana de trabajo y mi descanso dominical,
+Parad los relojes y desconectad el teléfono,
+Pensé que el amor era eterno; estaba equivocado.
+ponedles crespones en el cuello a las palomas callejeras,
+porque ahora ya nada puede tener utilidad.
+que los agentes de tráfico lleven guantes negros de
+Que los aviones den vueltas en señal de luto
+sacad el ataúd y llamad a las plañideras.
+tirad el mar por el desagüe y podad los bosques,
+Ya no hacen falta estrellas: quitadlas todas,
+y escriban en el cielo el mensaje “Él ha muerto”,
+
+
+Ejercicio 1.11
+
+dipzza@dipzza-Aspire-E5-573:~/Escritorio$ cat *.txt *.c
+ 
+Parad los relojes y desconectad el teléfono,
+dadle un hueso jugoso al perro para que no ladre,
+haced callar a los pianos, tocad tambores con sordina,
+sacad el ataúd y llamad a las plañideras.
+
+Que los aviones den vueltas en señal de luto
+y escriban en el cielo el mensaje “Él ha muerto”,
+ponedles crespones en el cuello a las palomas callejeras,
+que los agentes de tráfico lleven guantes negros de
+algodón.
+
+Él era mi norte y mi sur, mi este y mi oeste,
+mi semana de trabajo y mi descanso dominical,
+mi día y mi noche, mi charla y mi música.
+Pensé que el amor era eterno; estaba equivocado.
+
+Ya no hacen falta estrellas: quitadlas todas,
+guardad la luna y desmontad el sol,
+tirad el mar por el desagüe y podad los bosques,
+porque ahora ya nada puede tener utilidad.
+cat: '*.c': No existe el archivo o el directorio

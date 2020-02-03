@@ -1,0 +1,75 @@
+-------------------------------------------------------------------
+Ejercicio 7.1
+-------------------------------------------------------------------
+jakerxd@jakerxd-X761X:~/Escritorio/sesion08$ g++ -c main.cpp
+main.cpp: In function ‘int main()’:
+main.cpp:7:17: error: ‘print_hello’ was not declared in this scope
+     print_hello();
+                 ^
+main.cpp:9:52: error: ‘factorial’ was not declared in this scope
+     cout << "The factorial of 7 is " << factorial(7) << endl;
+                                                    ^
+Da error al no conocer las funciones que no se han incluido con la librería.
+
+-------------------------------------------------------------------
+Ejercicio 7.2
+-------------------------------------------------------------------
+
+No están incluidas las fundiones del seno coseno y tangente.
+
+-------------------------------------------------------------------
+Ejercicio 7.3
+-------------------------------------------------------------------
+
+La opción -L./ solo busca las librerías en la carpeta actual. 
+Al moverlas a otra carpeta no las encuentra.
+
+-------------------------------------------------------------------
+Ejercicio 7.4
+-------------------------------------------------------------------
+
+La orden make comprueba si ha habido cambios en los archivos, si no,
+no realiza ninguna operación.
+
+-------------------------------------------------------------------
+Ejercicio 7.5
+-------------------------------------------------------------------
+
+Lo mismo que el de arriba
+
+-------------------------------------------------------------------
+Ejercicio 7.8
+-------------------------------------------------------------------
+
+AR  --- se usaría $(AR) -rvs libmates.a sin.o cos.o tan.o
+
+-------------------------------------------------------------------
+Ejercicio 7.10
+-------------------------------------------------------------------
+
+CC=g++
+
+source=main.c stack.c getop.c getch.c
+objects=$(source:.c=.o)
+
+dir_cab=./cabeceras
+
+
+calculadoraPolaca: $(objects)
+    $(CC) -o $@ $^
+    
+main.o: main.c calc.h
+	$(CC) -I$(dir_cab) -c $<
+
+stack.o: stack.c calc.h
+	$(CC) -I$(dir_cab) -c $<
+
+getop.o: getop.c calc.h
+	$(CC) -I$(dir_cab) -c $<
+
+getch.o: getch.c calc.h
+	$(CC) -I$(dir_cab) -c $<
+
+	
+borrar:
+    rm *.o calculadoraPolaca

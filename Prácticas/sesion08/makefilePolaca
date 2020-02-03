@@ -1,0 +1,25 @@
+CC=g++
+
+source=main.c stack.c getop.c getch.c
+objects=$(source:.c=.o)
+
+dir_cab=./cabeceras
+
+calculadoraPolaca: $(objects)
+    g++ -o calculadoraPolaca $^
+    
+main.o: main.c calc.h
+	g++ -I$(dir_cab) -c main.c
+
+stack.o: stack.c calc.h
+	g++ -I$(dir_cab) -c stack.c
+
+getop.o: getop.c calc.h
+	g++ -I$(dir_cab) -c getop.c
+
+getch.o: getch.c calc.h
+	g++ -I$(dir_cab) -c getch.c
+
+	
+borrar:
+    rm {main,stack,getop,getch}.o calculadoraPolaca

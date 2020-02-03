@@ -1,0 +1,166 @@
+Practica 2
+
+Ejercicio 2.1
+
+javierb@javierb-VirtualBox:~$ touch ej21
+javierb@javierb-VirtualBox:~$ chmod o+x ej21
+javierb@javierb-VirtualBox:~$ chmod g+r,g+x ej21
+javierb@javierb-VirtualBox:~$ chmod g-r,o-r ej21
+javierb@javierb-VirtualBox:~$ chmod u+x,a+r ej21
+javierb@javierb-VirtualBox:~$ touch {e, ea, ee}
+javierb@javierb-VirtualBox:~$ chmod g+x e*
+javierb@javierb-VirtualBox:~$ ls -l
+total 36
+drwxr-xr-x 2 javierb javierb 4096 oct  3 11:42 Descargas
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Documentos
+-rw-rw-r-- 1 javierb javierb    0 oct  3 12:28 {e,
+-rw-rwxr-- 1 javierb javierb    0 oct  3 12:28 ea,
+-rw-rwxr-- 1 javierb javierb    0 oct  3 12:28 ee}
+-rwxrwxr-x 1 javierb javierb    0 oct  3 12:24 ej21
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Escritorio
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Imágenes
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Música
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Plantillas
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Público
+-rw-rw-r-- 1 javierb javierb   14 oct  3 12:07 temporal
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Vídeos
+
+Ejercicio 2.2
+
+javierb@javierb-VirtualBox:~$ ls .
+Descargas  Documentos  ej21  Escritorio  Imágenes  Música  Plantillas  Público  temporal  Vídeos
+javierb@javierb-VirtualBox:~$ ls .. > ej31
+javierb@javierb-VirtualBox:~$ cat ej31
+javierb
+javierb@javierb-VirtualBox:~$ ls . > ej31
+javierb@javierb-VirtualBox:~$ head -2 ej31 > ej32
+javierb@javierb-VirtualBox:~$ cat ej31 >> ej32
+javierb@javierb-VirtualBox:~$ cat ej31
+Descargas
+Documentos
+ej21
+ej31
+Escritorio
+Imágenes
+Música
+Plantillas
+Público
+temporal
+Vídeos
+javierb@javierb-VirtualBox:~$ cat ej32
+Descargas
+Documentos
+Descargas
+Documentos
+ej21
+ej31
+Escritorio
+Imágenes
+Música
+Plantillas
+Público
+temporal
+Vídeos
+
+Ejercicio 2.3
+
+javierb@javierb-VirtualBox:~$ ls -l /etc | tail -6
+drwxr-xr-x  2 root root    4096 oct  2 10:45 wildmidi
+drwxr-xr-x  2 root root    4096 abr 12 05:14 wpa_supplicant
+drwxr-xr-x 10 root root    4096 abr 12 05:14 X11
+drwxr-xr-x  5 root root    4096 abr 12 05:13 xdg
+drwxr-xr-x  2 root root    4096 abr 12 05:13 xml
+-rw-r--r--  1 root root     477 jul 19  2015 zsh_command_not_found
+javierb@javierb-VirtualBox:~$ wc -m {e,f}*
+ 24 e
+  0 ej21
+ 93 ej31
+114 ej32
+  5 f
+236 total
+
+Ejercicio 2.4
+
+
+javierb@javierb-VirtualBox:~$ man chmod | tail -17 > ejercicio1
+javierb@javierb-VirtualBox:~$ cat ejercicio1
+       Written by David MacKenzie and Jim Meyering.
+
+REPORTING BUGS
+       GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+       Report chmod translation bugs to <http://translationproject.org/team/>
+
+COPYRIGHT
+       Copyright © 2016 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+       chmod(2)
+
+       Full documentation at: <http://www.gnu.org/software/coreutils/chmod>
+       or available locally via: info '(coreutils) chmod invocation'
+
+GNU coreutils 8.26                                                      March 2017                                                                CHMOD(1)
+javierb@javierb-VirtualBox:~$ pwd >> ejercicio1
+javierb@javierb-VirtualBox:~$ (who; ls)  > ejercicio3
+javierb@javierb-VirtualBox:~$ cat ejercicio3
+javierb  tty7         2017-10-03 11:37 (:0)
+javierb  pts/0        2017-10-03 11:40 (:0)
+Descargas
+Documentos
+e
+ej21
+ej31
+ej32
+ejercicio1
+ejercicio3
+Escritorio
+f
+Imágenes
+Música
+Plantillas
+Público
+temporal
+Vídeos
+javierb@javierb-VirtualBox:~$ wc ejercicio1 &>> ejercicio3
+javierb@javierb-VirtualBox:~$ cat ejercicio3
+javierb  tty7         2017-10-03 11:37 (:0)
+javierb  pts/0        2017-10-03 11:40 (:0)
+Descargas
+Documentos
+e
+ej21
+ej31
+ej32
+ejercicio1
+ejercicio3
+Escritorio
+f
+Imágenes
+Música
+Plantillas
+Público
+temporal
+Vídeos
+ 18  81 839 ejercicio1
+javierb@javierb-VirtualBox:~$ chmod g-r,u+x,o+x,a+x ejercicio{1,3}
+javierb@javierb-VirtualBox:~$ ls -l
+total 60
+drwxr-xr-x 2 javierb javierb 4096 oct  3 11:42 Descargas
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Documentos
+-rw-rw-r-- 1 javierb javierb   24 oct  3 12:43 e
+-rwxrwxr-x 1 javierb javierb    0 oct  3 12:24 ej21
+-rw-rw-r-- 1 javierb javierb   97 oct  3 12:39 ej31
+-rw-rw-r-- 1 javierb javierb  118 oct  3 12:39 ej32
+-rwx-wxr-x 1 javierb javierb  839 oct  3 12:49 ejercicio1
+-rwx-wxr-x 1 javierb javierb  239 oct  3 12:53 ejercicio3
+drwxr-xr-x 2 javierb javierb 4096 oct  3 12:47 Escritorio
+-rw-rw-r-- 1 javierb javierb    5 oct  3 12:43 f
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Imágenes
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Música
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Plantillas
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Público
+-rw-rw-r-- 1 javierb javierb   14 oct  3 12:07 temporal
+drwxr-xr-x 2 javierb javierb 4096 oct  2 10:46 Vídeos
+
+

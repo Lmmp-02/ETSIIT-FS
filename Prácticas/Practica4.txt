@@ -1,0 +1,200 @@
+-------------------------------------------------------------------
+Ejercicio 4.1
+-------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~/Escritorio$ DA=365
+javierb@javierb-VirtualBox:~/Escritorio$ DIA=`date +%j`
+javierb@javierb-VirtualBox:~/Escritorio$ echo "Faltan $[($DA - $DIA)/7] semanas hasta fin de año"
+Faltan 9 semanas hasta fin de año
+
+-------------------------------------------------------------------
+Ejercicio 4.2
+-------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~/Escritorio$ v=1
+javierb@javierb-VirtualBox:~/Escritorio$ echo $v
+1
+javierb@javierb-VirtualBox:~/Escritorio$ echo $[v++]
+1
+javierb@javierb-VirtualBox:~/Escritorio$ echo $v
+2
+javierb@javierb-VirtualBox:~/Escritorio$ echo $[++v]
+3
+javierb@javierb-VirtualBox:~/Escritorio$ echo $v
+3
+
+-------------------------------------------------------------------
+Ejercicio 4.3
+-------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~/Escritorio$ x=25
+javierb@javierb-VirtualBox:~/Escritorio$ y=5
+javierb@javierb-VirtualBox:~/Escritorio$ echo $[x /= $y]
+5
+javierb@javierb-VirtualBox:~/Escritorio$ echo $x
+5
+
+-------------------------------------------------------------------
+Ejercicio 4.4
+-------------------------------------------------------------------
+
+Si se acota entero lo muestra literalmente como si fuera texto.
+Si se acota solo la expresión muestra el resultado correctamente.
+
+-------------------------------------------------------------------
+Ejercicio 4.5
+-------------------------------------------------------------------
+
+echo "(3-2)/5"|bc -l
+
+Solo funciona correctamente si esta entrecomillado en dobles o simples.
+
+-------------------------------------------------------------------
+Ejercicio 4.7
+-------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ let a=b=3+2
+
+-------------------------------------------------------------------
+Ejercicio 4.8
+-------------------------------------------------------------------
+
+if (($valor==6)); then echo si; else echo no; fi
+
+-------------------------------------------------------------------
+Ejercicio 4.9
+-------------------------------------------------------------------
+Script:
+
+#!/bin/bash
+
+if (($1==$2)); then echo "$1 es igual a $2"; else echo "$1 y $2 no son iguales"; fi
+if (($1>$2)); then echo "$1 es mayor que $2"; else echo "$1 no es mayor que $2"; fi
+if (($1<$2)); then echo "$1 es menor que $2"; else echo "$1 no es menor que $2"; fi
+
+echo (($1==$2));
+
+Terminal:
+
+javierb@javierb-VirtualBox:~/Escritorio$ ./script 5 6
+5 y 6 no son iguales
+5 no es mayor que 6
+5 es menor que 6
+
+
+-------------------------------------------------------------------
+Ejercicio 4.10
+-------------------------------------------------------------------
+
+Script:
+
+#!/bin/bash
+
+planox=`test -f $1 -a -x $1 && echo true || echo false`
+echo $planox
+
+esimbol=`test -h $1 && echo true || echo false`
+echo $esimbol
+
+Terminal:
+
+javierb@javierb-VirtualBox:~$ ./Escritorio/script /bin/cat
+true
+false
+javierb@javierb-VirtualBox:~$ ./Escritorio/script /bin/rnano
+true
+true
+
+-------------------------------------------------------------------
+Ejercicio 4.11
+-------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ test "pedro" > "javi" && echo true || echo false
+true
+javierb@javierb-VirtualBox:~$ test 8 -eq 7 && echo true || echo false
+false
+
+-------------------------------------------------------------------
+Ejercicio 4.12
+-------------------------------------------------------------------
+
+a) Detecta si existe el archivo sesion5.pdf en el directorio actual, y si existo imprime un mensaje indicandolo.
+
+b) if test -f ./sesion5.pdf ; then printf “El archivo ./sesion5.pdf existe\n”; else printf "El archivo ./sesion5.pdf no existe\n"; fi
+
+c) if test -f ./sesion5.pdf ; then printf “El archivo ./sesion5.pdf existe\n”;elif test -d ./bin; then printf "El archivo /bin es un directorio y el archivo ./sesion5.pdf no existe\n";else printf "El archivo ./sesion5.pdf no existe y /bin no es un directorio\n"; fi
+
+d) if test -f ./$1 ; then printf “El archivo ./sesion5.pdf existe\n”;elif test -d $2; then printf "El archivo /bin es un directorio y el archivo ./sesion5.pdf no existe\n";else printf "El archivo ./sesion5.pdf no existe y /bin no es un directorio\n"; fi
+
+-------------------------------------------------------------------
+Ejercicio 4.13
+-------------------------------------------------------------------
+
+Script:
+
+#!/bin/bash
+
+if test -r $1 -a -O $1; then echo Eres propietario del archivo y tienes permiso de lectura; else echo No eres propietario del archivo o no tienes permiso de lectura; fi
+
+-------------------------------------------------------------------
+Ejercicio 4.14
+-------------------------------------------------------------------
+
+Script:
+
+#!/bin/bash
+
+if [[ $1 == "-h" ]]
+then
+	printf "Este Script cálcula el nº día hasta el final del año y devuelve si es múltiplo de 5\n"
+else
+	if [ $[(365 - $(date +%j))%5] = 0 ]; 
+	then 
+		echo El número de días hasta fin de curso es múltiplo de 5; 
+	else 
+		echo El número de días hasta fin de curso no es múltiplo de 5; 
+	fi
+fi
+
+-------------------------------------------------------------------
+Ejercicio 4.15
+-------------------------------------------------------------------
+
+Si se borra la redirección el mensaje de error no se guarda en /dev/null, por lo tanto se muestra en pantalla.
+
+-------------------------------------------------------------------
+Ejercicio 4.16
+-------------------------------------------------------------------
+
+Script:
+
+#!/bin/bash
+
+if [ `echo $1 | grep -e '^.$'` ]
+then
+echo "Es un unico caracter"
+if [[ $1 =~ [A-Z] ]]
+then
+echo "Y es una letra mayuscula"
+elif [[ $1 =~ [a-z] ]]
+then
+echo "Y es una letra minuscula"
+else
+echo "No es una letra, es otro caracter"
+fi
+else
+echo "No es un unico caracter"
+fi
+
+-------------------------------------------------------------------
+Ejercicio 4.17
+-------------------------------------------------------------------
+
+find / -regex '.*\([0-9]+.*e\).*'
+find . -regex '.*e.*' -and -not -regex '.*[01].*'
+
+-------------------------------------------------------------------
+Ejercicio 4.18
+-------------------------------------------------------------------
+
+grep -c

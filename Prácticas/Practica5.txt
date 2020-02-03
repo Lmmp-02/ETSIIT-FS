@@ -1,0 +1,207 @@
+-------------------------------------------------------------------
+Ejercicio 5.1
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+
+if [ $# != 2 ]
+	then echo "Es necesario introducir 2 argumentos"
+	exit
+fi
+
+
+if ! test -d $1
+	then echo "La ruta introducida no es un directorio"
+	exit
+fi
+
+
+let esnu=$2
+
+if [ $? != 0 ]
+	then echo "El 2º arg no es valido"
+	exit
+fi
+
+find $1 -size -$2 > archivosSizN.txt
+
+
+-------------------------------------------------------------------
+Ejercicio 5.2
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+
+if [ $# != 1 ]
+	then echo "Es necesario introducir solo un argumento"
+	exit
+fi
+
+
+if ! test -d $1
+	then echo "La ruta introducida no es un directorio"
+	exit
+fi
+
+
+for archivo in $(ls $1)
+do
+	if test -d $archivo
+		then echo "$archivo - Directorio"
+	elif test -h $archivo
+		then echo "$archivo - Enlace"
+	elif test -f $archivo
+		then echo "$archivo - Archivo regular" 
+	fi
+done
+
+-------------------------------------------------------------------
+Ejercicio 5.3
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+
+printf "Pulsa una tecla\n"
+
+read tecla
+
+case $tecla in
+	[o0-9\'¡]) echo "Primera fila" ;;
+	[qwertyuiop\`+]) echo "Segunda fila" ;;
+	[asdfghjklñ ́ç]) echo "Tercera fila" ;;
+	[\<zxcvbnm,.-]) echo "Cuarta fila" ;;
+	*) echo "Otra linea" ;;
+esac
+
+-------------------------------------------------------------------
+Ejercicio 5.4
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+
+let esNum=$1;
+
+if [ $? == 0 ]
+then 
+	case "$1" in
+		1) echo "Enero";;
+		2) echo "Febrero";;
+		3) echo "Marzo";;
+		4) echo "Abril";;
+		5) echo "Mayo";;
+		6) echo "Junio";;
+		7) echo "Julio";;
+		8) echo "Agosto";;
+		9) echo "Septiembre";;
+		10) echo "Octubre";;
+		11) echo "Noviembre";;
+		12) echo "Diciembre";;
+		*) echo "El número introducido debe estar entre 1 y 12";;
+	esac
+
+else
+	case "$1" in
+		ene) echo "Enero";;
+		feb) echo "Febrero";;
+		mar) echo "Marzo";;
+		abr) echo "Abril";;
+		may) echo "Mayo";;
+		jun) echo "Junio";;
+		jul) echo "Julio";;
+		ago) echo "Agosto";;
+		sep) echo "Septiembre";;
+		oct) echo "Octubre";;
+		nov) echo "Noviembre";;
+		dic) echo "Diciembre";;
+		*) echo "Es necesario introducir las 3 primeras letras del mes en minúsula";;
+	esac
+fi
+
+-------------------------------------------------------------------
+Ejercicio 5.5
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+
+num=0
+
+while [ $num -lt 1 ] || [ $num -gt 10 ]
+do
+	printf "Introduzca un número del 1 al 10\n"
+	read num
+done
+
+
+-------------------------------------------------------------------
+Ejercicio 5.6
+-------------------------------------------------------------------
+
+La variable INTERVAL indica el tiempo que espera entre cada giro, si la reducimos aumenta la velacidad y se la aumentamos se reduce.
+
+La opción -e trata todo como caracter.
+
+-------------------------------------------------------------------
+Ejercicio 5.7
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+
+for linea in `cat /etc/passwd`
+do
+	usuario=`echo $linea|cut -d: -f1`
+	shell=`echo $linea|cut -d: -f7`
+	valor="/bin/$1"
+
+	if [[ $valor == `echo $shell` ]]
+	then
+		echo $usuario >> temp.txt
+	fi
+done
+
+cat temp.txt|sort
+rm temp.txt
+
+-------------------------------------------------------------------
+Ejercicio 5.8
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+
+if ! test -d $1/CopiaSeguridad;
+then 
+    mkdir $1/CopiaSeguridad;
+fi
+
+
+if test -d $1
+then
+    tar -cvf "$1/CopiaSeguridad/copia.tar" $1
+    
+    gzip "$1/CopiaSeguridad/copia.tar"
+fi
+
+-------------------------------------------------------------------
+Ejercicio 5.9
+-------------------------------------------------------------------
+(SCRIPT)
+#!/bin/bash
+if (( $# != 3 )) 
+then
+    echo "Es necesario introducir 3 argumentos"
+    exit
+fi
+
+if (( $2 < 1 )) || (( $2 > 99 ))
+then
+    echo "El número de archivos tiene que estar comprendido entre 1 y 99"
+    exit
+fi
+
+if ! test -d $1
+then
+    mkdir $1
+fi
+
+for (( i=1; i<=$2; i++ )) ; do
+    touch "$1/$3$i"
+done

@@ -1,0 +1,192 @@
+Práctica 3
+
+---------------------------------------------------------------------------------
+Ejercicio 3.1:
+---------------------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ printenv
+CLUTTER_IM_MODULE=xim
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_MENU_PREFIX=gnome-
+LANG=es_ES.UTF-8
+GDM_LANG=es_ES
+MANAGERPID=1209
+DISPLAY=:0
+QT_STYLE_OVERRIDE=
+INVOCATION_ID=6582d9abe8564a2cab0862a2ba571c4f
+COLORTERM=truecolor
+ZEITGEIST_DATA_PATH=/home/javierb/.local/share/zeitgeist
+XDG_VTNR=7
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+MANDATORY_PATH=/usr/share/gconf/budgie-desktop.mandatory.path
+XDG_SESSION_ID=c1
+XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/javierb
+USER=javierb
+DESKTOP_SESSION=budgie-desktop
+QT4_IM_MODULE=xim
+DEFAULTS_PATH=/usr/share/gconf/budgie-desktop.default.path
+QT_QPA_PLATFORMTHEME=gtk2
+PWD=/home/javierb
+HOME=/home/javierb
+JOURNAL_STREAM=8:19504
+SSH_AGENT_PID=1295
+QT_ACCESSIBILITY=1
+XDG_SESSION_TYPE=x11
+TERMINIX_ID=c84c6cde-6664-40a0-bf7c-5c834531982c
+XDG_DATA_DIRS=/usr/share/budgie-desktop:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_SESSION_DESKTOP=budgie-desktop
+DBUS_STARTER_ADDRESS=unix:path=/run/user/1000/bus,guid=e2a2a094b03c2f7e17d8a76c59dc94fc
+GTK_MODULES=gail:atk-bridge
+TERM=xterm-256color
+SHELL=/bin/bash
+VTE_VERSION=4402
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+QT_IM_MODULE=ibus
+XMODIFIERS=@im=ibus
+IM_CONFIG_PHASE=1
+DBUS_STARTER_BUS_TYPE=session
+XDG_CURRENT_DESKTOP=Budgie:GNOME
+QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
+XDG_SEAT=seat0
+SHLVL=1
+LANGUAGE=es_ES
+GDMSESSION=budgie-desktop
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+LOGNAME=javierb
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus,guid=e2a2a094b03c2f7e17d8a76c59dc94fc
+XDG_RUNTIME_DIR=/run/user/1000
+XAUTHORITY=/home/javierb/.Xauthority
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+XDG_CONFIG_DIRS=/etc/xdg/xdg-budgie-desktop:/etc/xdg
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+SYSTEMD_NSS_BYPASS_BUS=1
+SESSION_MANAGER=local/javierb-VirtualBox:@/tmp/.ICE-unix/1214,unix/javierb-VirtualBox:/tmp/.ICE-unix/1214
+LESSOPEN=| /usr/bin/lesspipe %s
+GTK_IM_MODULE=ibus
+_=/usr/bin/printenv
+
+---------------------------------------------------------------------------------
+Ejercicio 3.2
+---------------------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ NOMBRE=FS
+javierb@javierb-VirtualBox:~$ echo $NOMBRE
+FS
+javierb@javierb-VirtualBox:~$ bash
+javierb@javierb-VirtualBox:~$ echo $NOMBRE
+
+javierb@javierb-VirtualBox:~$ exit
+exit
+javierb@javierb-VirtualBox:~$ export NOMBRE
+javierb@javierb-VirtualBox:~$ bash
+javierb@javierb-VirtualBox:~$ echo $NOMBRE
+FS
+
+---------------------------------------------------------------------------------
+Ejercicio 3.3
+---------------------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ echo "Los archivos que hay en el directorio son:" $(ls -l)
+Los archivos que hay en el directorio son: total 64 drwxr-xr-x 2 javierb javierb 4096 oct 10 12:54 Descargas drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Documentos -rw-rw-r-- 1 javierb javierb 24 oct 3 12:43 e -rwxrwxr-x 1 javierb javierb 0 oct 3 12:24 ej21 -rw-rw-r-- 1 javierb javierb 97 oct 3 12:39 ej31 -rw-rw-r-- 1 javierb javierb 118 oct 3 12:39 ej32 -rwx-wxr-x 1 javierb javierb 839 oct 3 12:49 ejercicio1 -rwx-wxr-x 1 javierb javierb 239 oct 3 12:53 ejercicio3 drwxr-xr-x 2 javierb javierb 4096 oct 10 13:03 Escritorio -rw-rw-r-- 1 javierb javierb 5 oct 3 12:43 f drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Imágenes drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Música drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Plantillas -rwxr-xr-x 1 javierb javierb 128 oct 10 12:37 prueba drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Público -rw-rw-r-- 1 javierb javierb 14 oct 3 12:07 temporal drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Vídeos
+javierb@javierb-VirtualBox:~$ echo "Los archivos que hay en el directorio son:" `ls -l`
+Los archivos que hay en el directorio son: total 64 drwxr-xr-x 2 javierb javierb 4096 oct 10 12:54 Descargas drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Documentos -rw-rw-r-- 1 javierb javierb 24 oct 3 12:43 e -rwxrwxr-x 1 javierb javierb 0 oct 3 12:24 ej21 -rw-rw-r-- 1 javierb javierb 97 oct 3 12:39 ej31 -rw-rw-r-- 1 javierb javierb 118 oct 3 12:39 ej32 -rwx-wxr-x 1 javierb javierb 839 oct 3 12:49 ejercicio1 -rwx-wxr-x 1 javierb javierb 239 oct 3 12:53 ejercicio3 drwxr-xr-x 2 javierb javierb 4096 oct 10 13:03 Escritorio -rw-rw-r-- 1 javierb javierb 5 oct 3 12:43 f drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Imágenes drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Música drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Plantillas -rwxr-xr-x 1 javierb javierb 128 oct 10 12:37 prueba drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Público -rw-rw-r-- 1 javierb javierb 14 oct 3 12:07 temporal drwxr-xr-x 2 javierb javierb 4096 oct 2 10:46 Vídeos
+javierb@javierb-VirtualBox:~$ 
+
+javierb@javierb-VirtualBox:~$ echo 'Los archivos que hay en el directorio son: $(ls -l)'
+Los archivos que hay en el directorio son: $(ls -l)
+javierb@javierb-VirtualBox:~$ echo 'Los archivos que hay en el directorio son:`ls -l`'
+Los archivos que hay en el directorio son:`ls -l`
+javierb@javierb-VirtualBox:~$ 
+
+---------------------------------------------------------------------------------
+Ejercicio 3.4
+---------------------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ numero=$numero+1
+javierb@javierb-VirtualBox:~$ echo $numero
++1
+$ numero=`expr $numero + 1`
+
+---------------------------------------------------------------------------------
+Ejercicio 3.5
+---------------------------------------------------------------------------------
+
+En el script:
+
+#!/bin/bash
+printf "Hola $1\n"
+
+En la terminal:
+
+javierb@javierb-VirtualBox:~/Escritorio$ chmod +x script
+javierb@javierb-VirtualBox:~/Escritorio$ ./script Pedro
+Hola Pedro
+
+----------------------------------------------------------------------------------
+Ejercicio 3.6
+----------------------------------------------------------------------------------
+
+En el script:
+
+#!/bin/bash
+printf "Hola $*\n"
+
+En la terminal:
+
+javierb@javierb-VirtualBox:~/Escritorio$ ./script Pepe Juan Pedro
+Hola Pepe Juan Pedro
+
+----------------------------------------------------------------------------------
+Ejercicio 3.7
+----------------------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ VAR1=hola
+javierb@javierb-VirtualBox:~$ VAR2=adios
+javierb@javierb-VirtualBox:~$ VAR3=14
+javierb@javierb-VirtualBox:~$ printf "%15s %15s %15s\n" $VAR1 $VAR2 $VAR3
+           hola           adios              14
+
+Son variables de tipo local
+
+javierb@javierb-VirtualBox:~$ unset VAR2
+
+No, eran variables locales de la terminal anterior.
+
+javierb@javierb-VirtualBox:~$ vector=(hola adios 14)
+javierb@javierb-VirtualBox:~$ echo ${vector[1]}
+adios
+
+----------------------------------------------------------------------------------
+Ejercicio 3.8
+----------------------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ alias ne='ls .|wc -l'
+javierb@javierb-VirtualBox:~$ ne
+18
+javierb@javierb-VirtualBox:~$ alias ne='ls $HOME|wc -l'
+javierb@javierb-VirtualBox:~$ ne
+
+----------------------------------------------------------------------------------
+Ejercicio 3.9
+----------------------------------------------------------------------------------
+
+javierb@javierb-VirtualBox:~$ find $HOME -size -1 >> ./archivosP
+
+----------------------------------------------------------------------------------
+Ejercicio 3.10
+----------------------------------------------------------------------------------
+
+find ./*ejemplo*
+
+----------------------------------------------------------------------------------
+Ejercicio 3.11
+----------------------------------------------------------------------------------
+
+man find
+man grep
+
+----------------------------------------------------------------------------------
+Ejercicio 3.12
+----------------------------------------------------------------------------------
+
+
